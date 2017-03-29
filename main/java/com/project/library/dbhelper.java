@@ -79,6 +79,37 @@ public class dbhelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_BORROW_TABLE);
 
         Log.d(TAG, "Database tables created");
+
+
+
+
+        ContentValues values = new ContentValues();
+        values.put(BOOK_ID, "BK001"); // Name
+        values.put(BOOK_NAME, "Programming Android"); // Email
+        values.put(BOOK_LANG, "English"); // Email
+        values.put(BOOK_AUTH, "Clarke");
+
+        // Inserting Row
+        long id = db.insert(TABLE_BOOK, null, values);
+
+        values.put(BOOK_ID, "BK002"); // Name
+        values.put(BOOK_NAME, "Programming Java"); // Email
+        values.put(BOOK_LANG, "English"); // Email
+        values.put(BOOK_AUTH, "Tim");
+
+        // Inserting Row
+         id = db.insert(TABLE_BOOK, null, values);
+
+        values.put(BOOK_ID, "BK003"); // Name
+        values.put(BOOK_NAME, "Sherlock Holmes"); // Email
+        values.put(BOOK_LANG, "English"); // Email
+        values.put(BOOK_AUTH, "Arthur Conan Doyle");
+
+        // Inserting Row
+         id = db.insert(TABLE_BOOK, null, values);
+        db.close(); // Closing database connection
+
+        Log.d(TAG, "Books inserted: " + id);
     }
 
     // Upgrading database
