@@ -107,7 +107,7 @@ public class dbhelper extends SQLiteOpenHelper {
 
         // Inserting Row
          id = db.insert(TABLE_BOOK, null, values);
-        db.close(); // Closing database connection
+        //db.close(); // Closing database connection
 
         Log.d(TAG, "Books inserted: " + id);
     }
