@@ -169,6 +169,69 @@ public class dbhelper extends SQLiteOpenHelper {
         return user;
     }
 
+    public HashMap<String, String> getBookDetails( String language , String book, String author) {
+        HashMap<String, String> bookDetails = new HashMap<String, String>();
+        String selectQuery  = "SELECT  * FROM " + TABLE_BOOK  + " where ";
+        if(language!=null || !language.trim().isEmpty()){
+            selectQuery = selectQuery + BOOK_LANG + " = " + language ;
+        }
+
+       /* if(book!=null || !book.trim().isEmpty()){
+            selectQuery = selectQuery + BOOK_NAME + " = " + book ;
+        }
+
+        if(author!=null || !author.trim().isEmpty()){
+            selectQuery = selectQuery + BOOK_AUTH + " = " + author ;
+        }*/
+
+
+
+
+        /*SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            bookDetails.put(BOOK_ID, cursor.getString(1));
+            bookDetails.put(BOOK_NAME, cursor.getString(2));
+            bookDetails.put(BOOK_LANG, cursor.getString(3));
+            bookDetails.put(BOOK_AUTH, cursor.getString(4));
+        }
+        cursor.close();
+        db.close();
+        // return user
+        Log.d(TAG, "Fetching user from Sqlite: " + user.toString());*//*
+
+        return user;*/
+
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.query(TABLE_BOOK, new String[] { BOOK_ID,BOOK_NAME,BOOK_LANG,BOOK_AUTH },null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+               /* String emailid=cursor.getString(0); // Here you can get data from table and stored in string if it has only one string.
+                bookDetails.setText(emailid);*/
+
+                System.out.println(cursor.getString(0));
+                System.out.println(cursor.getString(1));
+                System.out.println(cursor.getString(2));
+                System.out.println(cursor.getString(3));
+
+
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+        if(db!=null)
+        {
+            db.close();
+        }
+
+        return bookDetails;
+    }
+
     /**
      * Re crate database Delete all tables and create them again
      * */
