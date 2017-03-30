@@ -169,7 +169,7 @@ public class dbhelper extends SQLiteOpenHelper {
         return user;
     }
 
-    public HashMap<String, String> getBookDetails( String language , String book, String author) {
+    public HashMap<String, String> getBookDetails( String book , String language, String author) {
         HashMap<String, String> bookDetails = new HashMap<String, String>();
         String selectQuery  = "SELECT  * FROM " + TABLE_BOOK  + " where ";
         if(language!=null || !language.trim().isEmpty()){
@@ -213,10 +213,21 @@ public class dbhelper extends SQLiteOpenHelper {
                /* String emailid=cursor.getString(0); // Here you can get data from table and stored in string if it has only one string.
                 bookDetails.setText(emailid);*/
 
-                System.out.println(cursor.getString(0));
-                System.out.println(cursor.getString(1));
-                System.out.println(cursor.getString(2));
-                System.out.println(cursor.getString(3));
+
+               String bookID = cursor.getString(0);
+                String bookName = cursor.getString(1);
+                String bookLang =cursor.getString(2);
+                String bookAuth = cursor.getString(3);
+
+               if(book!=null || !book.trim().isEmpty()){
+                if(book.trim().equals(bookName.trim())){
+
+                }else{
+                    
+                }
+               }
+
+
 
 
             } while (cursor.moveToNext());

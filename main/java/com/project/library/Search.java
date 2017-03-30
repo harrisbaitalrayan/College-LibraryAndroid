@@ -23,10 +23,10 @@ public class Search extends AppCompatActivity {
 
 
                 String language = ((EditText) findViewById(R.id.editText)).getText().toString();
-                String book = ((EditText) findViewById(R.id.editText2)).getText().toString();
+                String bookName = ((EditText) findViewById(R.id.editText2)).getText().toString();
                 String author = ((EditText) findViewById(R.id.editText3)).getText().toString();
 
-                db.getBookDetails(language,book,author);
+                db.getBookDetails(bookName,language,author);
             }
 
         });
