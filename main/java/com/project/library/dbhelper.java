@@ -184,7 +184,7 @@ public class dbhelper extends SQLiteOpenHelper {
         String limit = null;
 
 
-        ArrayList selectionList = new ArrayList();
+        ArrayList<String> selectionList = new ArrayList<String> ();
 
         if(book!=null || !book.trim().isEmpty()){
             selection =  BOOK_NAME + " = ? ";
@@ -216,7 +216,7 @@ public class dbhelper extends SQLiteOpenHelper {
         }
 
         if(selectionList !=null && !selectionList.isEmpty()){
-            selectionArgs = (String[])selectionList.toArray();
+            selectionArgs = selectionList.toArray(new String[0]);
         }
 
 
