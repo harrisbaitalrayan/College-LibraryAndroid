@@ -12,6 +12,7 @@ package com.project.library;
         import android.database.sqlite.SQLiteOpenHelper;
         import android.util.Log;
 
+        import java.util.ArrayList;
         import java.util.HashMap;
 
 public class dbhelper extends SQLiteOpenHelper {
@@ -40,10 +41,10 @@ public class dbhelper extends SQLiteOpenHelper {
     private static final String KEY_PWD = "user_pwd";
 
 
-    private static final String BOOK_ID = "book_id";
-    private static final String BOOK_NAME = "book_name";
-    private static final String BOOK_LANG = "book_language";
-    private static final String BOOK_AUTH = "book_author";
+    public static final String BOOK_ID = "book_id";
+    public static final String BOOK_NAME = "book_name";
+    public static final String BOOK_LANG = "book_language";
+    public static final String BOOK_AUTH = "book_author";
 
 
     private static final String RETURN_DATE = "return_date";
@@ -169,78 +170,64 @@ public class dbhelper extends SQLiteOpenHelper {
         return user;
     }
 
-    public HashMap<String, String> getBookDetails( String book , String language, String author) {
-        HashMap<String, String> bookDetails = new HashMap<String, String>();
-        String selectQuery  = "SELECT  * FROM " + TABLE_BOOK  + " where ";
-        if(language!=null || !language.trim().isEmpty()){
-            selectQuery = selectQuery + BOOK_LANG + " = " + language ;
-        }
-
-       /* if(book!=null || !book.trim().isEmpty()){
-            selectQuery = selectQuery + BOOK_NAME + " = " + book ;
-        }
-
-        if(author!=null || !author.trim().isEmpty()){
-            selectQuery = selectQuery + BOOK_AUTH + " = " + author ;
-        }*/
-
-
-
-
-        /*SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        // Move to first row
-        cursor.moveToFirst();
-        if (cursor.getCount() > 0) {
-            bookDetails.put(BOOK_ID, cursor.getString(1));
-            bookDetails.put(BOOK_NAME, cursor.getString(2));
-            bookDetails.put(BOOK_LANG, cursor.getString(3));
-            bookDetails.put(BOOK_AUTH, cursor.getString(4));
-        }
-        cursor.close();
-        db.close();
-        // return user
-        Log.d(TAG, "Fetching user from Sqlite: " + user.toString());*//*
-
-        return user;*/
-
+    public Cursor getBookDetails( String book , String language, String author) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor cursor = db.query(TABLE_BOOK, new String[] { BOOK_ID,BOOK_NAME,BOOK_LANG,BOOK_AUTH },null, null, null, null, null);
-        if (cursor.moveToFirst()) {
-            do {
-               /* String emailid=cursor.getString(0); // Here you can get data from table and stored in string if it has only one string.
-                bookDetails.setText(emailid);*/
+        String table = TABLE_BOOK;
+        String[] columns = { BOOK_ID,BOOK_NAME,BOOK_LANG,BOOK_AUTH};
+        String selection = null;
+        String[] selectionArgs=null ;
+        String groupBy = null;
+        String having = null;
+        String orderBy =null;
+        String limit = null;
 
 
-               String bookID = cursor.getString(0);
-                String bookName = cursor.getString(1);
-                String bookLang =cursor.getString(2);
-                String bookAuth = cursor.getString(3);
+        ArrayList selectionList = new ArrayList();
 
-               if(book!=null || !book.trim().isEmpty()){
-                if(book.trim().equals(bookName.trim())){
-
-                }else{
-                    
-                }
-               }
-
-
-
-
-            } while (cursor.moveToNext());
-        }
-        if (cursor != null && !cursor.isClosed()) {
-            cursor.close();
-        }
-        if(db!=null)
-        {
-            db.close();
+        if(book!=null || !book.trim().isEmpty()){
+            selection =  BOOK_NAME + " = ? ";
+            selectionList.add(BOOK_NAME);
         }
 
-        return bookDetails;
+        if(language!=null || !language.trim().isEmpty()){
+
+            if(selection.trim().equals("")){
+                selection = BOOK_LANG + " = ? ";
+            }else{
+                selection = selection + " AND "+BOOK_LANG + " = ? ";
+            }
+
+            selectionList.add(BOOK_LANG);
+
+        }
+
+        if(author!=null || !author.trim().isEmpty()){
+
+            if(selection.trim().equals("")){
+                selection =  BOOK_AUTH + " = ? ";
+            }else{
+                selection = selection + " AND "+BOOK_AUTH + " = ? ";
+            }
+
+            selectionList.add(BOOK_AUTH);
+
+        }
+
+        if(selectionList !=null && !selectionList.isEmpty()){
+            selectionArgs = (String[])selectionList.toArray();
+        }
+
+
+
+
+        Cursor cursor = db.query(TABLE_BOOK, new String[] { BOOK_ID,BOOK_NAME,BOOK_LANG,BOOK_AUTH },selection, selectionArgs, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+
     }
 
     /**
