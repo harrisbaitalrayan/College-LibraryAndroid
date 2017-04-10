@@ -15,4 +15,5 @@
         completions."
     </string>
     <string name="title_activity_contact">Contact</string>
+    <string name="title_activity_searchmain">Book Search</string>
 </resources>
