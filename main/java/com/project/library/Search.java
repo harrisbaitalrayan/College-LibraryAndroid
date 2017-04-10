@@ -56,10 +56,10 @@ public class Search extends AppCompatActivity {
 
         // the XML defined views which the data will be bound to
         int[] to = new int[] {
-                R.id.bookid,
-                R.id.bookname,
-                R.id.booklanguage,
-                R.id.bookauthor,
+                R.id.book_id,
+                R.id.book_name,
+                R.id.book_language,
+                R.id.book_author,
         };
 
         // create the adapter using the cursor pointing to the desired data
