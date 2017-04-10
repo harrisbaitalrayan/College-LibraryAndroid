@@ -11,7 +11,7 @@ import android.widget.SimpleCursorAdapter;
 
 public class SearchMain extends AppCompatActivity {
 
-    private Button btnsearch;
+
     private dbhelper db;
     private SimpleCursorAdapter dataAdapter;
     @Override
@@ -21,7 +21,7 @@ public class SearchMain extends AppCompatActivity {
 
 
 
-
+        db  = new dbhelper(getApplicationContext());
                 String language = getIntent().getStringExtra("language");
                 String bookName = getIntent().getStringExtra("bookName");
                 String author = getIntent().getStringExtra("author");

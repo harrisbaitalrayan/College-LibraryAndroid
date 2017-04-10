@@ -13,15 +13,14 @@ import android.widget.SimpleCursorAdapter;
 public class Search extends AppCompatActivity {
 
     private Button btnsearch;
-    private dbhelper db;
-    private SimpleCursorAdapter dataAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
         btnsearch = (Button) findViewById(R.id.button5);
-        db  = new dbhelper(getApplicationContext());
+
         btnsearch.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
