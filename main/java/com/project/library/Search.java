@@ -52,7 +52,7 @@ public class Search extends AppCompatActivity {
     }
 
 
-    private void displayListView(Cursor cursor) {
+   /* private void displayListView(Cursor cursor) {
 
 
         // The desired columns to be bound
@@ -87,5 +87,5 @@ public class Search extends AppCompatActivity {
 
 
 
-    }
+    }*/
 }
