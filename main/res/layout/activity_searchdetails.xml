@@ -42,35 +42,35 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/booklanguage"
+        android:id="@+id/book_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_alignBaseline="@+id/textView3"
         android:layout_alignBottom="@+id/textView3"
-        android:layout_alignLeft="@+id/bookid"
-        android:layout_alignStart="@+id/bookid" />
+        android:layout_alignLeft="@+id/book_id"
+        android:layout_alignStart="@+id/book_id" />
 
     <TextView
-        android:id="@+id/bookauthor"
+        android:id="@+id/book_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
-        android:layout_alignLeft="@+id/bookid"
+        android:layout_alignLeft="@+id/book_id"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/bookname"
+        android:id="@+id/book_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_alignLeft="@+id/bookid"
-        android:layout_alignStart="@+id/bookid" />
+        android:layout_alignLeft="@+id/book_id"
+        android:layout_alignStart="@+id/book_id" />
 
     <TextView
-        android:id="@+id/bookid"
+        android:id="@+id/book_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
