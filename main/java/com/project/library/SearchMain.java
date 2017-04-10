@@ -1,6 +1,5 @@
 package com.project.library;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +9,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-public class Search extends AppCompatActivity {
+public class SearchMain extends AppCompatActivity {
 
     private Button btnsearch;
     private dbhelper db;
@@ -18,34 +17,20 @@ public class Search extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
-
-        btnsearch = (Button) findViewById(R.id.button5);
-        db  = new dbhelper(getApplicationContext());
-        btnsearch.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
+        setContentView(R.layout.activity_searchmain);
 
 
-                String language = ((EditText) findViewById(R.id.editText)).getText().toString();
-                String bookName = ((EditText) findViewById(R.id.editText2)).getText().toString();
-                String author = ((EditText) findViewById(R.id.editText3)).getText().toString();
-
-                Intent i = new Intent(getApplicationContext(),
-                        SearchMain.class);
-                i.putExtra("language", language);
-                i.putExtra("bookName", bookName);
-                i.putExtra("author", author);
-
-                startActivity(i);
-
-                //Cursor cursor = db.getBookDetails(bookName,language,author);
-                //displayListView(cursor);
 
 
-            }
+                String language = getIntent().getStringExtra("language");
+                String bookName = getIntent().getStringExtra("bookName");
+                String author = getIntent().getStringExtra("author");
 
-        });
+                Cursor cursor = db.getBookDetails(bookName,language,author);
+                displayListView(cursor);
+
+
+
 
 
 
@@ -73,12 +58,12 @@ public class Search extends AppCompatActivity {
 
         // create the adapter using the cursor pointing to the desired data
         //as well as the layout information
-                dataAdapter = new SimpleCursorAdapter(
-                        this, R.layout.activity_searchdetails,
-                        cursor,
-                        columns,
-                        to,
-                        0);
+        dataAdapter = new SimpleCursorAdapter(
+                this, R.layout.activity_searchdetails,
+                cursor,
+                columns,
+                to,
+                0);
 
 
         ListView listView = (ListView) findViewById(R.id.listView1);
