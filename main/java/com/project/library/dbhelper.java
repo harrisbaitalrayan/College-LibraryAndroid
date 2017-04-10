@@ -189,16 +189,16 @@ public class dbhelper extends SQLiteOpenHelper {
         ArrayList<String> selectionList = new ArrayList<String> ();
 
         if(book!=null && !book.trim().equals("")){
-            selection =  BOOK_NAME + " = ? ";
+            selection =  BOOK_NAME + " like ? ";
             selectionList.add(BOOK_NAME);
         }
 
         if(language!=null && !language.trim().equals("")){
 
-            if(selection.trim().equals("")){
-                selection = BOOK_LANG + " = ? ";
+            if(selection ==null ){
+                selection = BOOK_LANG + " like ? ";
             }else{
-                selection = selection + " AND "+BOOK_LANG + " = ? ";
+                selection = selection + " AND "+BOOK_LANG + " like ? ";
             }
 
             selectionList.add(BOOK_LANG);
@@ -207,10 +207,10 @@ public class dbhelper extends SQLiteOpenHelper {
 
         if(author!=null && !author.trim().equals("")){
 
-            if(selection.trim().equals("")){
-                selection =  BOOK_AUTH + " = ? ";
+            if(selection == null ){
+                selection =  BOOK_AUTH + " like ? ";
             }else{
-                selection = selection + " AND "+BOOK_AUTH + " = ? ";
+                selection = selection + " AND "+BOOK_AUTH + " like ? ";
             }
 
             selectionList.add(BOOK_AUTH);

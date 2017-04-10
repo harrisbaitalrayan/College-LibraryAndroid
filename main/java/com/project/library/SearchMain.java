@@ -4,10 +4,11 @@ import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 public class SearchMain extends AppCompatActivity {
 
@@ -69,6 +70,22 @@ public class SearchMain extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.listView1);
         // Assign adapter to ListView
         listView.setAdapter(dataAdapter);
+
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> listView, View view,
+                                    int position, long id) {
+                // Get the cursor, positioned to the corresponding row in the result set
+                Cursor cursor = (Cursor) listView.getItemAtPosition(position);
+
+                // Get the state's capital from this row in the database.
+                String bookName =
+                        cursor.getString(cursor.getColumnIndexOrThrow(dbhelper.BOOK_NAME));
+                Toast.makeText(getApplicationContext(),
+                        bookName, Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
 
