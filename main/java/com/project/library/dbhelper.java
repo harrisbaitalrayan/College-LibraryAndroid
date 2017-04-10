@@ -222,7 +222,7 @@ public class dbhelper extends SQLiteOpenHelper {
 
 
 
-        Cursor cursor = db.query(TABLE_BOOK, new String[] { BOOK_ID,BOOK_NAME,BOOK_LANG,BOOK_AUTH },selection, selectionArgs, null, null, null);
+        Cursor cursor = db.query(table, columns,selection, selectionArgs, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
