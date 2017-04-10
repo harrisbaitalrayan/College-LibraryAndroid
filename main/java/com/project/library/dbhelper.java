@@ -49,6 +49,8 @@ public class dbhelper extends SQLiteOpenHelper {
 
     private static final String RETURN_DATE = "return_date";
 
+   // public static final String _ID = "_id"; // This column needed for adapter
+
 
 
     private static final String KEY_UID = "uid";
@@ -175,7 +177,7 @@ public class dbhelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         String table = TABLE_BOOK;
-        String[] columns = { BOOK_ID,BOOK_NAME,BOOK_LANG,BOOK_AUTH};
+        String[] columns = { "rowid _id", BOOK_ID,BOOK_NAME,BOOK_LANG,BOOK_AUTH};
         String selection = null;
         String[] selectionArgs=null ;
         String groupBy = null;
