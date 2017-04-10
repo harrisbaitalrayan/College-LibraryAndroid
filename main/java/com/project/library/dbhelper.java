@@ -190,7 +190,7 @@ public class dbhelper extends SQLiteOpenHelper {
 
         if(book!=null && !book.trim().equals("")){
             selection =  BOOK_NAME + " like ? ";
-            selectionList.add(book);
+            selectionList.add("%"+book+"%");
         }
 
         if(language!=null && !language.trim().equals("")){
@@ -202,7 +202,7 @@ public class dbhelper extends SQLiteOpenHelper {
                 selection = selection + " AND "+BOOK_LANG + " like ? ";
             }
 
-            selectionList.add(language);
+            selectionList.add("%"+language+"%");
 
         }
 
@@ -214,7 +214,7 @@ public class dbhelper extends SQLiteOpenHelper {
                 selection = selection + " AND "+BOOK_AUTH + " like ? ";
             }
 
-            selectionList.add(author);
+            selectionList.add("%"+author+"%");
 
         }
 
