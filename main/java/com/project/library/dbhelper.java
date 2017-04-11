@@ -158,7 +158,7 @@ public class dbhelper extends SQLiteOpenHelper {
     public String getUserDetails(String user) {
         //HashMap<String, String> user = new HashMap<String, String>();
         String pwd = "";
-        String selectQuery = "SELECT "+ KEY_PWD +" FROM " + TABLE_USER + " where "+KEY_ID+ " = '"+user+"'";
+        /*String selectQuery = "SELECT "+ KEY_PWD +" FROM " + TABLE_USER + " where "+KEY_ID+ " = '"+user+"'";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -172,6 +172,31 @@ public class dbhelper extends SQLiteOpenHelper {
         // return user
         //Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
 
+        return pwd;*/
+
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String table = TABLE_USER;
+        String[] columns = { "rowid _id", KEY_PWD};
+        String selection = KEY_ID;
+        String[] selectionArgs={user} ;
+        String groupBy = null;
+        String having = null;
+        String orderBy =null;
+        String limit = null;
+
+
+
+        Cursor cursor = db.query(table, columns,selection, selectionArgs, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            if (cursor.getCount() > 0) {
+                pwd = cursor.getString(1);
+            }
+            cursor.close();
+            db.close();
+        }
         return pwd;
     }
 
