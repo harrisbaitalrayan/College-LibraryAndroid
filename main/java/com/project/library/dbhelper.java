@@ -179,7 +179,7 @@ public class dbhelper extends SQLiteOpenHelper {
 
         String table = TABLE_USER;
         String[] columns = { "rowid _id", KEY_PWD};
-        String selection = KEY_ID;
+        String selection = KEY_ID + "=?";;
         String[] selectionArgs={user} ;
         String groupBy = null;
         String having = null;
@@ -268,7 +268,7 @@ public class dbhelper extends SQLiteOpenHelper {
 
         String table = TABLE_BORROW;
         String[] columns = { "rowid _id", BOOK_ID,BOOK_NAME,BOOK_LANG,BOOK_AUTH,RETURN_DATE};
-        String selection = KEY_ID;
+        String selection = KEY_ID + "=?";
         String[] selectionArgs={userName} ;
         String groupBy = null;
         String having = null;
