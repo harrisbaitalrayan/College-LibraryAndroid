@@ -77,7 +77,9 @@ public class dbhelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_BOOK_TABLE);
 
         String CREATE_BORROW_TABLE = "CREATE TABLE " + TABLE_BORROW + "("
-                + BOOK_ID + " TEXT," + KEY_ID + " TEXT,"
+                + BOOK_ID + " TEXT," + KEY_ID + " TEXT," + BOOK_NAME + " TEXT,"
+                + BOOK_LANG + " TEXT,"
+                + BOOK_AUTH + " TEXT,"
                 + RETURN_DATE + " TEXT" + ")";
         db.execSQL(CREATE_BORROW_TABLE);
 
@@ -128,7 +130,7 @@ public class dbhelper extends SQLiteOpenHelper {
     /**
      * Storing user details in database
      * */
-    public void addUser(String uid,String name, String email, String address, String dob, String mobile, String pwd) {
+    public boolean addUser(String uid,String name, String email, String address, String dob, String mobile, String pwd) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -145,31 +147,30 @@ public class dbhelper extends SQLiteOpenHelper {
         db.close(); // Closing database connection
 
         Log.d(TAG, "New user inserted into sqlite: " + id);
+        return true;
     }
 
     /**
      * Getting user data from database
      * */
-    public HashMap<String, String> getUserDetails() {
-        HashMap<String, String> user = new HashMap<String, String>();
-        /*String selectQuery = "SELECT  * FROM " + TABLE_USER;
+    public String getUserDetails(String user) {
+        //HashMap<String, String> user = new HashMap<String, String>();
+        String pwd = "";
+        String selectQuery = "SELECT "+ KEY_PWD +" FROM " + TABLE_USER + "where "+KEY_ID+ " = "+user;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         // Move to first row
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
-            user.put("name", cursor.getString(1));
-            user.put("email", cursor.getString(2));
-            user.put("uid", cursor.getString(3));
-            user.put("created_at", cursor.getString(4));
+            pwd = cursor.getString(1);
         }
         cursor.close();
         db.close();
         // return user
-        Log.d(TAG, "Fetching user from Sqlite: " + user.toString());*/
+        //Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
 
-        return user;
+        return pwd;
     }
 
     public Cursor getBookDetails( String book , String language, String author) {
@@ -222,6 +223,30 @@ public class dbhelper extends SQLiteOpenHelper {
             selectionArgs = selectionList.toArray(new String[0]);
         }
 
+
+
+
+        Cursor cursor = db.query(table, columns,selection, selectionArgs, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+
+    }
+
+
+    public Cursor getBookBorrowDetails( String userName) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String table = TABLE_BORROW;
+        String[] columns = { "rowid _id", BOOK_ID,BOOK_NAME,BOOK_LANG,BOOK_AUTH,RETURN_DATE};
+        String selection = KEY_ID;
+        String[] selectionArgs={userName} ;
+        String groupBy = null;
+        String having = null;
+        String orderBy =null;
+        String limit = null;
 
 
 

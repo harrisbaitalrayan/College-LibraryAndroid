@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Register extends AppCompatActivity {
 
@@ -35,6 +36,8 @@ public class Register extends AppCompatActivity {
                 String user_pwd = ((EditText) findViewById(R.id.editText7)).getText().toString();
 
                 db.addUser(user_id,user_name,user_email,user_address,user_dob,user_mobile,user_pwd);
+                Toast.makeText(getApplicationContext(),
+                        "User successfully registered.", Toast.LENGTH_SHORT).show();
             }
 
         });

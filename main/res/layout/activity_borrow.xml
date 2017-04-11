@@ -7,10 +7,19 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Books Available - Select to Borrow"
+        android:text="Welcome : "
         android:textSize="20sp" />
 
-    <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="List of books borrowed by you :"
+        android:textSize="20sp" />
+
+    <ListView android:id="@+id/listView2" android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
+
+
 
 </LinearLayout>
