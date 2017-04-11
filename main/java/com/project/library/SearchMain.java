@@ -128,6 +128,11 @@ public class SearchMain extends AppCompatActivity {
 
                         } });
 
+                    alertDialog.show();
+
+
+
+
                 }
 
 
