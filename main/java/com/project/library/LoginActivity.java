@@ -344,7 +344,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 //finish();
-
+                session = new SessionManager(getApplicationContext());
                 session.createLoginSession(mEmail, mEmail);
 
                 // Staring MainActivity
