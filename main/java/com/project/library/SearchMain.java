@@ -1,5 +1,8 @@
 package com.project.library;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,11 +13,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
+import static com.project.library.SessionManager.KEY_NAME;
+
 public class SearchMain extends AppCompatActivity {
 
 
     private dbhelper db;
     private SimpleCursorAdapter dataAdapter;
+    AlertDialog alertDialog;
+    SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,10 +86,51 @@ public class SearchMain extends AppCompatActivity {
                 Cursor cursor = (Cursor) listView.getItemAtPosition(position);
 
                 // Get the state's capital from this row in the database.
+                String bookID =
+                        cursor.getString(cursor.getColumnIndexOrThrow(dbhelper.BOOK_ID));
+
                 String bookName =
                         cursor.getString(cursor.getColumnIndexOrThrow(dbhelper.BOOK_NAME));
+
+                String bookLang =
+                        cursor.getString(cursor.getColumnIndexOrThrow(dbhelper.BOOK_LANG));
+
+                String bookAuth =
+                        cursor.getString(cursor.getColumnIndexOrThrow(dbhelper.BOOK_AUTH));
+
+
                 Toast.makeText(getApplicationContext(),
                         bookName, Toast.LENGTH_SHORT).show();
+
+                session = new SessionManager(getApplicationContext());
+
+                if(session.isLoggedIn()){
+
+                    db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID,bookName,bookLang,bookAuth);
+
+
+                }else{
+
+                    alertDialog = new AlertDialog.Builder(SearchMain.this).create();
+
+                    alertDialog.setTitle("Login validation");
+
+                    alertDialog.setMessage("Login to view Borrow screen.");
+
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            Intent i = new Intent(getApplicationContext(),
+                                    LoginActivity.class);
+
+                            startActivity(i);
+
+                        } });
+
+                }
+
+
 
             }
         });

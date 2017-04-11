@@ -12,7 +12,9 @@ package com.project.library;
         import android.database.sqlite.SQLiteOpenHelper;
         import android.util.Log;
 
+        import java.text.SimpleDateFormat;
         import java.util.ArrayList;
+        import java.util.Calendar;
         import java.util.HashMap;
 
 public class dbhelper extends SQLiteOpenHelper {
@@ -256,6 +258,32 @@ public class dbhelper extends SQLiteOpenHelper {
         }
         return cursor;
 
+    }
+
+    public boolean addBorrowBook(String uid,String bookID, String bookName, String bookLang, String bookAuth) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Calendar c = Calendar.getInstance();
+        System.out.println("Current time => " + c.getTime());
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        String formattedDate = df.format(c.getTime());
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ID, uid);
+        values.put(BOOK_ID, bookID);
+        values.put(BOOK_NAME, bookName);
+        values.put(BOOK_LANG, bookLang);
+        values.put(BOOK_AUTH, bookAuth);
+        values.put(RETURN_DATE, formattedDate);
+
+
+        // Inserting Row
+        long id = db.insert(TABLE_BORROW, null, values);
+        db.close(); // Closing database connection
+
+        Log.d(TAG, "New user inserted into sqlite: " + id);
+        return true;
     }
 
     /**
