@@ -107,6 +107,21 @@ public class SearchMain extends AppCompatActivity {
                 if(session.isLoggedIn()){
 
                     db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID,bookName,bookLang,bookAuth);
+                    alertDialog = new AlertDialog.Builder(SearchMain.this).create();
+
+                    alertDialog.setTitle("Borrow");
+
+                    alertDialog.setMessage("Book successfully borrowed by user. ");
+
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            alertDialog.dismiss();
+
+                        } });
+
+                    alertDialog.show();
 
 
                 }else{
