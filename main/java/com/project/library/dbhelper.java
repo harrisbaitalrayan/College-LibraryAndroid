@@ -158,7 +158,7 @@ public class dbhelper extends SQLiteOpenHelper {
     public String getUserDetails(String user) {
         //HashMap<String, String> user = new HashMap<String, String>();
         String pwd = "";
-        String selectQuery = "SELECT "+ KEY_PWD +" FROM " + TABLE_USER + " where "+KEY_ID+ " = "+user;
+        String selectQuery = "SELECT "+ KEY_PWD +" FROM " + TABLE_USER + " where "+KEY_ID+ " = '"+user+"'";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
