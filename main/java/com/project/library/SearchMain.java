@@ -130,7 +130,7 @@ public class SearchMain extends AppCompatActivity {
 
                     alertDialog.setTitle("Login validation");
 
-                    alertDialog.setMessage("Login to view Borrow screen.");
+                    alertDialog.setMessage("Login to borrow books.");
 
                     alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
 
