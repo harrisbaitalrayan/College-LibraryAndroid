@@ -121,6 +121,8 @@ public class Borrow extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int id) {
 
                             alertDialog.dismiss();
+                            finish();
+                            startActivity(getIntent());
 
                         } });
 
