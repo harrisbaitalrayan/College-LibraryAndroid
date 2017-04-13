@@ -32,10 +32,11 @@ public class Borrow extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_borrow);
+        session = new SessionManager(getApplicationContext());
 
         if(session.isLoggedIn()){
 
-            session = new SessionManager(getApplicationContext());
+
             ((TextView)findViewById(R.id.welcome)).setText("Welcome : "+session.getUserDetails().get(KEY_NAME));
 
 
