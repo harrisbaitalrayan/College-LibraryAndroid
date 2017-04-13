@@ -29,11 +29,15 @@ public class Borrow extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_borrow);
-        session = new SessionManager(getApplicationContext());
-        ((TextView)findViewById(R.id.welcome)).setText("Welcome : "+session.getUserDetails().get(KEY_NAME));
 
         if(session.isLoggedIn()){
+        setContentView(R.layout.activity_borrow);
+
+
+            session = new SessionManager(getApplicationContext());
+            ((TextView)findViewById(R.id.welcome)).setText("Welcome : "+session.getUserDetails().get(KEY_NAME));
+
+
             db1  = new dbhelper(getApplicationContext());
 
             Cursor cursor1 = db1.getBookBorrowDetails(session.getUserDetails().get(KEY_NAME));
