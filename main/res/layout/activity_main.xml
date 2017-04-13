@@ -28,7 +28,10 @@
             android:layout_below="@+id/imageButton"
             android:text="New Release"
             android:layout_weight="0.09" />
-
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp" >
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="92dp"
@@ -50,13 +53,31 @@
                 app:srcCompat="@drawable/book2" />
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/imageView101"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/book1" />
+            <ImageView
+                android:id="@+id/imageView102"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/book1" />
+            <ImageView
+                android:id="@+id/imageView103"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/book1" />
+            <ImageView
+                android:id="@+id/imageView104"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/book1" />
         </LinearLayout>
-
+        </HorizontalScrollView>
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
