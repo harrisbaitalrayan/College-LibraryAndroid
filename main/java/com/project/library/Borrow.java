@@ -10,7 +10,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.ParseException;
 
 import static com.project.library.SessionManager.KEY_NAME;
 
@@ -27,6 +30,7 @@ public class Borrow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_borrow);
         session = new SessionManager(getApplicationContext());
+        ((TextView)findViewById(R.id.welcome)).setText("Welcome : "+session.getUserDetails().get(KEY_NAME));
 
         if(session.isLoggedIn()){
             db1  = new dbhelper(getApplicationContext());
@@ -65,7 +69,8 @@ public class Borrow extends AppCompatActivity {
                 dbhelper.BOOK_ID,
                 dbhelper.BOOK_NAME,
                 dbhelper.BOOK_LANG,
-                dbhelper.BOOK_AUTH
+                dbhelper.BOOK_AUTH,
+                dbhelper.RETURN_DATE
         };
 
         // the XML defined views which the data will be bound to
@@ -74,12 +79,13 @@ public class Borrow extends AppCompatActivity {
                 R.id.book_name,
                 R.id.book_language,
                 R.id.book_author,
+                R.id.return_date
         };
 
         // create the adapter using the cursor pointing to the desired data
         //as well as the layout information
         dataAdapter1 = new SimpleCursorAdapter(
-                this, R.layout.activity_searchdetails,
+                this, R.layout.activity__borrowdetails,
                 cursor,
                 columns,
                 to,
@@ -100,8 +106,30 @@ public class Borrow extends AppCompatActivity {
                 // Get the state's capital from this row in the database.
                 String bookName =
                         cursor1.getString(cursor1.getColumnIndexOrThrow(dbhelper.BOOK_NAME));
-                Toast.makeText(getApplicationContext(),
-                        "Borrowed book : "+bookName, Toast.LENGTH_SHORT).show();
+
+
+                try {
+                    db1.extendBorrowDate(cursor1.getString(cursor1.getColumnIndexOrThrow(dbhelper.BOOK_ID)),cursor1.getString(cursor1.getColumnIndexOrThrow(dbhelper.RETURN_DATE)));
+                    alertDialog = new AlertDialog.Builder(Borrow.this).create();
+
+                    alertDialog.setTitle("Borrow");
+
+                    alertDialog.setMessage("Book extended by 1 week. ");
+
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            alertDialog.dismiss();
+
+                        } });
+
+                    alertDialog.show();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),
+                            "Exception occurred. Contact App admin : "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

@@ -12,9 +12,11 @@ package com.project.library;
         import android.database.sqlite.SQLiteOpenHelper;
         import android.util.Log;
 
+        import java.text.ParseException;
         import java.text.SimpleDateFormat;
         import java.util.ArrayList;
         import java.util.Calendar;
+        import java.util.Date;
         import java.util.HashMap;
 
 public class dbhelper extends SQLiteOpenHelper {
@@ -49,7 +51,7 @@ public class dbhelper extends SQLiteOpenHelper {
     public static final String BOOK_AUTH = "book_author";
 
 
-    private static final String RETURN_DATE = "return_date";
+    public static final String RETURN_DATE = "return_date";
 
    // public static final String _ID = "_id"; // This column needed for adapter
 
@@ -305,6 +307,32 @@ public class dbhelper extends SQLiteOpenHelper {
 
         // Inserting Row
         long id = db.insert(TABLE_BORROW, null, values);
+        db.close(); // Closing database connection
+
+        Log.d(TAG, "New user inserted into sqlite: " + id);
+        return true;
+    }
+
+    public boolean extendBorrowDate(String bookID, String date) throws ParseException {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        Calendar cal = df.getCalendar();
+        cal.setTime(df.parse(date));
+        cal.add(Calendar.WEEK_OF_YEAR, 1);
+
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
+        String formattedDate = sdf.format(cal.getTime());
+
+
+        ContentValues values = new ContentValues();
+        values.put(RETURN_DATE, formattedDate);
+
+
+        // Updating Row
+        long id = db.update(TABLE_BORROW, values, BOOK_ID + "=" + bookID, null);
         db.close(); // Closing database connection
 
         Log.d(TAG, "New user inserted into sqlite: " + id);
