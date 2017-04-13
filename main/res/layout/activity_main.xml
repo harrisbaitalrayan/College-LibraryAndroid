@@ -41,39 +41,39 @@
                 android:id="@+id/imageView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+
                 app:srcCompat="@drawable/book3" />
 
             <ImageView
                 android:id="@+id/imageView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+
                 app:srcCompat="@drawable/book2" />
 
             <ImageView
                 android:id="@+id/imageView101"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+
                 app:srcCompat="@drawable/book1" />
             <ImageView
                 android:id="@+id/imageView102"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+
                 app:srcCompat="@drawable/book1" />
             <ImageView
                 android:id="@+id/imageView103"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+
                 app:srcCompat="@drawable/book1" />
             <ImageView
                 android:id="@+id/imageView104"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                
                 app:srcCompat="@drawable/book1" />
         </LinearLayout>
         </HorizontalScrollView>
