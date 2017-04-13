@@ -47,7 +47,7 @@ public class Contact extends AppCompatActivity {
         String[] CC = {""};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
-        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setData(Uri.parse("mailto: harris@baitalrayan.com"));
         emailIntent.setType("text/plain");
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
@@ -60,6 +60,7 @@ public class Contact extends AppCompatActivity {
         emailIntent.putExtra(Intent.EXTRA_TEXT, summary);
 
         try {
+            emailIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
             finish();
             alertDialog = new AlertDialog.Builder(Contact.this).create();
