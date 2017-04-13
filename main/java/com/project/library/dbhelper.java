@@ -332,7 +332,7 @@ public class dbhelper extends SQLiteOpenHelper {
 
 
         // Updating Row
-        long id = db.update(TABLE_BORROW, values, BOOK_ID + "=" + bookID, null);
+        long id = db.update(TABLE_BORROW, values, BOOK_ID + "='" + bookID+"'", null);
         db.close(); // Closing database connection
 
         Log.d(TAG, "New user inserted into sqlite: " + id);
