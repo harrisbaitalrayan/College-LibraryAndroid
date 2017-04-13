@@ -62,6 +62,7 @@ public class Borrow extends AppCompatActivity {
                     startActivity(i);
 
                 } });
+            alertDialog.show();
 
         }
 
