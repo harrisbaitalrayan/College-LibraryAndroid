@@ -1,5 +1,7 @@
 package com.project.library;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSearch;
     private Button btnContact;
     private Button btnBorrow;
+    SessionManager session;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnBorrow = (Button) findViewById(R.id.button);
+        session = new SessionManager(getApplicationContext());
         btnBorrow.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
@@ -141,11 +146,33 @@ public class MainActivity extends AppCompatActivity {
                             "Please enter the credentials!", Toast.LENGTH_LONG)
                             .show();
                 }*/
+                if(session.isLoggedIn()){
+                    Intent i = new Intent(getApplicationContext(),
+                            Borrow.class);
+                    startActivity(i);
+                    //finish();
+                }else{
 
-                Intent i = new Intent(getApplicationContext(),
-                        Borrow.class);
-                startActivity(i);
-                //finish();
+                    alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+
+                    alertDialog.setTitle("Login validation");
+
+                    alertDialog.setMessage("Login to view Borrow screen.");
+
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            Intent i = new Intent(getApplicationContext(),
+                                    LoginActivity.class);
+
+                            startActivity(i);
+
+                        } });
+                    alertDialog.show();
+                }
+
+
             }
 
         });
