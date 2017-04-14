@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.library_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         btnlogin = (Button) findViewById(R.id.button2);
         btnlogin.setOnClickListener(new View.OnClickListener() {
 

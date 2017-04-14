@@ -31,9 +31,6 @@
             android:name=".LoginActivity"
              />
         <activity android:name=".Register"
-            android:theme="@style/AppTheme"
-            android:logo="@drawable/library_logo"
-            android:label="My new title"
             />
         <activity android:name=".Search" />
         <activity

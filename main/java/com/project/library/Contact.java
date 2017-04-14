@@ -77,7 +77,7 @@ public class Contact extends AppCompatActivity {
 
                 } });
 
-            alertDialog.show();
+            //alertDialog.show();
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(Contact.this, "Cannot send email. There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
