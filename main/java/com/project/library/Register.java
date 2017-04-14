@@ -19,6 +19,10 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.library_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         btnregister = (Button) findViewById(R.id.button5);
         db  = new dbhelper(getApplicationContext());
         btnregister.setOnClickListener(new View.OnClickListener() {

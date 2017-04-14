@@ -18,6 +18,9 @@ public class Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.library_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         btnsearch = (Button) findViewById(R.id.button5);
 

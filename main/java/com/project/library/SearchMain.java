@@ -27,6 +27,9 @@ public class SearchMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchmain);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.library_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
         db  = new dbhelper(getApplicationContext());

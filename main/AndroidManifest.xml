@@ -20,7 +20,7 @@
 
         <activity android:name=".MainActivity"
             android:logo="@drawable/library_logo"
-            android:label="My new title">
+            android:label="Library">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,17 +29,29 @@
         </activity>
         <activity
             android:name=".LoginActivity"
+            android:logo="@drawable/library_logo"
+            android:label="Library"
              />
         <activity android:name=".Register"
+            android:logo="@drawable/library_logo"
+            android:label="Library"
             />
-        <activity android:name=".Search" />
+        <activity android:name=".Search"
+            android:logo="@drawable/library_logo"
+            android:label="Library"/>
         <activity
             android:name=".Contact"
+            android:logo="@drawable/library_logo"
+            android:label="Library"
            />
         <activity
             android:name=".SearchMain"
+            android:logo="@drawable/library_logo"
+            android:label="Library"
              />
-        <activity android:name=".Borrow"></activity>
+        <activity android:name=".Borrow"
+            android:logo="@drawable/library_logo"
+            android:label="Library"></activity>
     </application>
 
 </manifest>

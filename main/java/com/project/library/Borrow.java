@@ -32,6 +32,10 @@ public class Borrow extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_borrow);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.library_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         session = new SessionManager(getApplicationContext());
 
         if(session.isLoggedIn()){
