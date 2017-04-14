@@ -27,7 +27,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/imageButton"
-            android:text="New Release"
+            android:text="New Releases"
             android:layout_weight="0.09" />
         <HorizontalScrollView
             android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="28dp"
-            android:text="Popular" />
+            android:text="Popular Books" />
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
@@ -153,7 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.07"
-            android:text="Authors" />
+            android:text="Popular Authors" />
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
