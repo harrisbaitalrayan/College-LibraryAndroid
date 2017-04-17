@@ -38,39 +38,51 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book3" />
+                app:srcCompat="@drawable/b10" />
 
             <ImageView
                 android:id="@+id/imageView11"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book2" />
+                app:srcCompat="@drawable/b11" />
 
             <ImageView
                 android:id="@+id/imageView101"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book1" />
+                app:srcCompat="@drawable/b12" />
             <ImageView
                 android:id="@+id/imageView102"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book1" />
+                app:srcCompat="@drawable/b13" />
             <ImageView
                 android:id="@+id/imageView103"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book1" />
+                app:srcCompat="@drawable/b1" />
             <ImageView
                 android:id="@+id/imageView104"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book1" />
+                app:srcCompat="@drawable/b2" />
+            <ImageView
+                android:id="@+id/imageView105"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/b3" />
+            <ImageView
+                android:id="@+id/imageView106"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/b4" />
         </LinearLayout>
         </HorizontalScrollView>
         <TextView
@@ -95,49 +107,49 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book6" />
+                app:srcCompat="@drawable/b14" />
 
             <ImageView
                 android:id="@+id/imageView14"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book5" />
+                app:srcCompat="@drawable/b15" />
 
             <ImageView
                 android:id="@+id/imageView13"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book4" />
+                app:srcCompat="@drawable/b16" />
 
             <ImageView
                 android:id="@+id/imageView131"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book4" />
+                app:srcCompat="@drawable/b17" />
 
             <ImageView
                 android:id="@+id/imageView132"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book4" />
+                app:srcCompat="@drawable/b5" />
 
             <ImageView
                 android:id="@+id/imageView133"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book4" />
+                app:srcCompat="@drawable/b6" />
 
             <ImageView
                 android:id="@+id/imageView134"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book4" />
+                app:srcCompat="@drawable/b7" />
 
         </LinearLayout>
         </HorizontalScrollView>
@@ -164,67 +176,67 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book9" />
+                app:srcCompat="@drawable/b18" />
 
             <ImageView
                 android:id="@+id/imageView17"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book8" />
+                app:srcCompat="@drawable/b19" />
 
             <ImageView
                 android:id="@+id/imageView16"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book7" />
+                app:srcCompat="@drawable/b20" />
 
             <ImageView
                 android:id="@+id/imageView161"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book7" />
+                app:srcCompat="@drawable/b13" />
 
             <ImageView
                 android:id="@+id/imageView162"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book7" />
+                app:srcCompat="@drawable/b8" />
             <ImageView
                 android:id="@+id/imageView163"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book7" />
+                app:srcCompat="@drawable/b9" />
 
             <ImageView
                 android:id="@+id/imageView164"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book7" />
+                app:srcCompat="@drawable/b10" />
 
             <ImageView
                 android:id="@+id/imageView165"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book7" />
+                app:srcCompat="@drawable/b11" />
             <ImageView
                 android:id="@+id/imageView166"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book7" />
+                app:srcCompat="@drawable/b12" />
             <ImageView
                 android:id="@+id/imageView167"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book7" />
+                app:srcCompat="@drawable/b1" />
 
         </LinearLayout>
 
