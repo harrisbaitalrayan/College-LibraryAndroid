@@ -30,28 +30,28 @@
         <activity
             android:name=".LoginActivity"
             android:logo="@drawable/library_logo"
-            android:label="Library"
+            android:label=""
              />
         <activity android:name=".Register"
             android:logo="@drawable/library_logo"
-            android:label="Library"
+            android:label=""
             />
         <activity android:name=".Search"
             android:logo="@drawable/library_logo"
-            android:label="Library"/>
+            android:label=""/>
         <activity
             android:name=".Contact"
             android:logo="@drawable/library_logo"
-            android:label="Library"
+            android:label=""
            />
         <activity
             android:name=".SearchMain"
             android:logo="@drawable/library_logo"
-            android:label="Library"
+            android:label=""
              />
         <activity android:name=".Borrow"
             android:logo="@drawable/library_logo"
-            android:label="Library"></activity>
+            android:label=""></activity>
     </application>
 
 </manifest>

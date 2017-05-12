@@ -21,6 +21,9 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -69,10 +72,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        session = new SessionManager(getApplicationContext());
         setContentView(R.layout.activity_login);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.library_logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -347,7 +353,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 //finish();
-                session = new SessionManager(getApplicationContext());
+
                 session.createLoginSession(mEmail, mEmail);
 
                 // Staring MainActivity
@@ -368,6 +374,39 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        //getMenuInflater().inflate(R..main, menu);
+
+        MenuInflater inflater = getMenuInflater();
+        //inflater.inflate(R.menu.actionmenu, menu);
+
+        if(session.isLoggedIn()){
+            //   menu.add(0, MENU_LOGOUT, Menu.NONE, "Logout").setIcon(R.drawable.logout);
+            inflater.inflate(R.menu.actionmenu, menu);
+        }
+
+        return super.onCreateOptionsMenu(menu);
+
+
+        // return true;
+        //return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(android.R.id.home == item.getItemId()){
+            Intent homeIntent = new Intent(this, MainActivity.class);
+            //homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(homeIntent);
+        }else if(R.menu.actionmenu == item.getItemId()){
+            session.logoutUser();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

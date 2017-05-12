@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.library_logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 
@@ -201,11 +201,12 @@ public class MainActivity extends AppCompatActivity {
         //getMenuInflater().inflate(R..main, menu);
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.actionmenu, menu);
+        //inflater.inflate(R.menu.actionmenu, menu);
 
-        //if(session.isLoggedIn()){
-            menu.add(0, MENU_LOGOUT, Menu.NONE, "Logout").setIcon(R.drawable.logout);
-      // }
+        if(session.isLoggedIn()){
+         //   menu.add(0, MENU_LOGOUT, Menu.NONE, "Logout").setIcon(R.drawable.logout);
+            inflater.inflate(R.menu.actionmenu, menu);
+       }
 
         return super.onCreateOptionsMenu(menu);
 
@@ -221,6 +222,8 @@ public class MainActivity extends AppCompatActivity {
             Intent homeIntent = new Intent(this, MainActivity.class);
             //homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(homeIntent);
+        }else if("Logout".equals(item.getTitle())){
+            session.logoutUser();
         }
         return super.onOptionsItemSelected(item);
     }
