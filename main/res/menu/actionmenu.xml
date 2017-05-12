@@ -6,7 +6,7 @@
     <item
         android:id="@+id/action_cart"
         android:title="Logout"
-        android:icon="@drawable/library_logo_2"
+        android:icon="@drawable/logout"
         android:orderInCategory="100"
         app:showAsAction="always"/>
 
