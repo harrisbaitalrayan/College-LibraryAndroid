@@ -84,7 +84,7 @@ public class Register extends AppCompatActivity {
             Intent homeIntent = new Intent(this, MainActivity.class);
             //homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(homeIntent);
-        }else if(R.menu.actionmenu == item.getItemId()){
+        }else if("Logout".equals(item.getTitle())){
             session.logoutUser();
         }
         return super.onOptionsItemSelected(item);
