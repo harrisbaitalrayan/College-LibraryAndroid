@@ -192,7 +192,8 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
-
+    private static final int MENU_ADD = Menu.FIRST;
+    private static final int MENU_LOGOUT = Menu.FIRST + 4;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -201,6 +202,10 @@ public class MainActivity extends AppCompatActivity {
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.actionmenu, menu);
+
+        //if(session.isLoggedIn()){
+            menu.add(0, MENU_LOGOUT, Menu.NONE, "Logout").setIcon(R.drawable.logout);
+      // }
 
         return super.onCreateOptionsMenu(menu);
 
