@@ -10,7 +10,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import static com.project.library.SessionManager.KEY_NAME;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnBorrow;
     SessionManager session;
     AlertDialog alertDialog;
+    private dbhelper db;
 
 
 
@@ -35,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         //getSupportActionBar().setHomeButtonEnabled(true);
        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        db  = new dbhelper(getApplicationContext());
 
 
 
@@ -191,9 +195,116 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+
+
+        ImageView image1 =  (ImageView) findViewById(R.id.imageView12);
+        image1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook();
+
+
+                }else{
+
+                    showLoginError();
+
+
+                }
+            }
+        });
+
+
     }
-    private static final int MENU_ADD = Menu.FIRST;
-    private static final int MENU_LOGOUT = Menu.FIRST + 4;
+
+
+    private void showLoginError(){
+
+        alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+
+        alertDialog.setTitle("Login validation");
+
+        alertDialog.setMessage("Login to borrow books.");
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int id) {
+
+                Intent i = new Intent(getApplicationContext(),
+                        LoginActivity.class);
+
+                startActivity(i);
+
+            } });
+
+        alertDialog.show();
+
+
+
+
+    }
+
+
+    private void borrowBook(){
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+
+        // Setting Dialog Title
+        alertDialogBuilder.setTitle("Confirm Borrow.");
+
+        // Setting Dialog Message
+        alertDialogBuilder.setMessage("Do you want to borrow this book?");
+
+        // Setting Icon to Dialog
+        //alertDialog.setIcon(R.drawable.delete);
+
+        // Setting Positive "Yes" Button
+        alertDialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int which) {
+
+                // Write your code here to invoke YES event
+               // Toast.makeText(getApplicationContext(), "You clicked on YES", Toast.LENGTH_SHORT).show();
+
+                //db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID,bookName,bookLang,bookAuth);
+                db.addBorrowBook(session.getUserDetails().get(KEY_NAME),"Test1","Test1","Test1","Test1");
+
+                alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+
+                alertDialog.setTitle("Borrow");
+
+                alertDialog.setMessage("Book successfully borrowed by user. ");
+
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        alertDialog.dismiss();
+
+                    } });
+
+                alertDialog.show();
+            }
+        });
+
+        // Setting Negative "NO" Button
+        alertDialogBuilder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Write your code here to invoke NO event
+                //Toast.makeText(getApplicationContext(), "You clicked on NO", Toast.LENGTH_SHORT).show();
+                dialog.cancel();
+            }
+        });
+
+        // Showing Alert Message
+        alertDialogBuilder.show();
+
+
+
+
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

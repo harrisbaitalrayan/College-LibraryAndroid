@@ -38,6 +38,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 app:srcCompat="@drawable/b10" />
 
             <ImageView
@@ -45,6 +46,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 app:srcCompat="@drawable/b11" />
 
             <ImageView
@@ -52,36 +54,42 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 app:srcCompat="@drawable/b12" />
             <ImageView
                 android:id="@+id/imageView102"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 app:srcCompat="@drawable/b13" />
             <ImageView
                 android:id="@+id/imageView103"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 app:srcCompat="@drawable/b1" />
             <ImageView
                 android:id="@+id/imageView104"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 app:srcCompat="@drawable/b2" />
             <ImageView
                 android:id="@+id/imageView105"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 app:srcCompat="@drawable/b3" />
             <ImageView
                 android:id="@+id/imageView106"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 app:srcCompat="@drawable/b4" />
         </LinearLayout>
         </HorizontalScrollView>
