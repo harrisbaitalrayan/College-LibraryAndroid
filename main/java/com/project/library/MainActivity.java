@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.library_logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 
@@ -194,7 +195,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+
+        //getMenuInflater().inflate(R..main, menu);
+
+
+        return true;
+        //return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -202,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(android.R.id.home == item.getItemId()){
             Intent homeIntent = new Intent(this, MainActivity.class);
-            homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            //homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(homeIntent);
         }
         return super.onOptionsItemSelected(item);
