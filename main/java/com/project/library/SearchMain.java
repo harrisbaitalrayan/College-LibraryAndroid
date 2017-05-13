@@ -95,16 +95,16 @@ public class SearchMain extends AppCompatActivity {
                 Cursor cursor = (Cursor) listView.getItemAtPosition(position);
 
                 // Get the state's capital from this row in the database.
-                String bookID =
+                final String bookID =
                         cursor.getString(cursor.getColumnIndexOrThrow(dbhelper.BOOK_ID));
 
-                String bookName =
+                final String bookName =
                         cursor.getString(cursor.getColumnIndexOrThrow(dbhelper.BOOK_NAME));
 
-                String bookLang =
+                final String bookLang =
                         cursor.getString(cursor.getColumnIndexOrThrow(dbhelper.BOOK_LANG));
 
-                String bookAuth =
+                final String bookAuth =
                         cursor.getString(cursor.getColumnIndexOrThrow(dbhelper.BOOK_AUTH));
 
 
@@ -115,23 +115,51 @@ public class SearchMain extends AppCompatActivity {
 
                 if(session.isLoggedIn()){
 
-                    db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID,bookName,bookLang,bookAuth);
-                    alertDialog = new AlertDialog.Builder(SearchMain.this).create();
 
-                    alertDialog.setTitle("Borrow");
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SearchMain.this);
 
-                    alertDialog.setMessage("Book successfully borrowed by user. ");
+                    // Setting Dialog Title
+                    alertDialogBuilder.setTitle("Confirm Borrow.");
 
-                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                    // Setting Dialog Message
+                    alertDialogBuilder.setMessage("Do you want to borrow this book?");
 
-                        public void onClick(DialogInterface dialog, int id) {
+                    // Setting Icon to Dialog
+                    //alertDialog.setIcon(R.drawable.delete);
 
-                            alertDialog.dismiss();
+                    // Setting Positive "Yes" Button
+                    alertDialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int which) {
 
-                        } });
+                            db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID,bookName,bookLang,bookAuth);
+                            alertDialog = new AlertDialog.Builder(SearchMain.this).create();
 
-                    alertDialog.show();
+                            alertDialog.setTitle("Borrow");
 
+                            alertDialog.setMessage("Book successfully borrowed by user. ");
+
+                            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    alertDialog.dismiss();
+
+                                } });
+
+                            alertDialog.show();
+                        }
+                    });
+
+                    alertDialogBuilder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Write your code here to invoke NO event
+                            //Toast.makeText(getApplicationContext(), "You clicked on NO", Toast.LENGTH_SHORT).show();
+                            dialog.cancel();
+                        }
+                    });
+
+                    // Showing Alert Message
+                    alertDialogBuilder.show();
 
                 }else{
 

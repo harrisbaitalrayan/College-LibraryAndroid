@@ -203,17 +203,303 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(session.isLoggedIn()){
-                    borrowBook();
-
-
+                    borrowBook("BKM01","Social Media","English","TSAR");
                 }else{
-
                     showLoginError();
-
-
                 }
             }
         });
+        ImageView image2 =  (ImageView) findViewById(R.id.imageView11);
+        image2.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM02","Optimizing","English","Steve");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+        ImageView image3 =  (ImageView) findViewById(R.id.imageView101);
+        image3.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM03","Coding","English","Mark");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+        ImageView image4 =  (ImageView) findViewById(R.id.imageView102);
+        image4.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM04","Software Dev","English","Hol");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+        ImageView image5 =  (ImageView) findViewById(R.id.imageView103);
+        image5.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM05","Solo","English","Adam");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+        ImageView image6 =  (ImageView) findViewById(R.id.imageView104);
+        image6.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM06","Privacy","English","Jan");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+        ImageView image7 =  (ImageView) findViewById(R.id.imageView105);
+        image7.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM07","Python","English","Reilly");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image8 =  (ImageView) findViewById(R.id.imageView106);
+        image8.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM08","HTML","English","Reilly");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+
+        // Second ROW books
+
+
+        ImageView image9 =  (ImageView) findViewById(R.id.imageView15);
+        image9.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM09","Kinect","English","Sam");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image10 =  (ImageView) findViewById(R.id.imageView14);
+        image10.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM10","PERL","English","Reilly");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image11 =  (ImageView) findViewById(R.id.imageView13);
+        image11.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM11","Google App","English","Reilly");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image12 =  (ImageView) findViewById(R.id.imageView131);
+        image12.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM12","Passionate","English","Siri");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image13 =  (ImageView) findViewById(R.id.imageView132);
+        image13.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM13","Nanoscale","English","Reilly");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image14 =  (ImageView) findViewById(R.id.imageView133);
+        image14.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM14","Info Tech","English","MK");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image15 =  (ImageView) findViewById(R.id.imageView134);
+        image15.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM15","Science Tech","English","Joy");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+
+
+        // THIRD ROW BOOKS
+
+        ImageView image16 =  (ImageView) findViewById(R.id.imageView18);
+        image16.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM16","Oject Oriented","English","Ran");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image17 =  (ImageView) findViewById(R.id.imageView17);
+        image17.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM17","Code","English","Reilly");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image18 =  (ImageView) findViewById(R.id.imageView16);
+        image18.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM18","Materials","English","Clove");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image19 =  (ImageView) findViewById(R.id.imageView161);
+        image19.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM19","Lean Software","English","Steve");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image20 =  (ImageView) findViewById(R.id.imageView162);
+        image20.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM20","Fortran","English","Roman");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image21 =  (ImageView) findViewById(R.id.imageView163);
+        image21.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM21","Python Biology","English","Rayes");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image22 =  (ImageView) findViewById(R.id.imageView164);
+        image22.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM22","Social Media","English","Disten");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image23 =  (ImageView) findViewById(R.id.imageView165);
+        image23.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM23","C++","English","Steve");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image24 =  (ImageView) findViewById(R.id.imageView166);
+        image24.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM24","Coding","English","Reilly");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
+        ImageView image25 =  (ImageView) findViewById(R.id.imageView167);
+        image25.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+                if(session.isLoggedIn()){
+                    borrowBook("BKM25","Legal Techno","English","AJ");
+                }else{
+                    showLoginError();
+                }
+            }
+        });
+
 
 
     }
@@ -246,7 +532,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void borrowBook(){
+    private void borrowBook(String bookID,String bookName,String bookLang,String bookAuth){
+
+        final String bookID_1 = bookID;
+        final String bookName_1 = bookName;
+        final String bookLang_1 = bookLang;
+        final String bookAuth_1 = bookAuth;
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
 
@@ -260,15 +551,14 @@ public class MainActivity extends AppCompatActivity {
         //alertDialog.setIcon(R.drawable.delete);
 
         // Setting Positive "Yes" Button
+
         alertDialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
 
                 // Write your code here to invoke YES event
                // Toast.makeText(getApplicationContext(), "You clicked on YES", Toast.LENGTH_SHORT).show();
 
-                //db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID,bookName,bookLang,bookAuth);
-                db.addBorrowBook(session.getUserDetails().get(KEY_NAME),"Test1","Test1","Test1","Test1");
-
+                db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID_1,bookName_1,bookLang_1,bookAuth_1);
                 alertDialog = new AlertDialog.Builder(MainActivity.this).create();
 
                 alertDialog.setTitle("Borrow");

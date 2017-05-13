@@ -130,37 +130,75 @@ public class Borrow extends AppCompatActivity {
             public void onItemClick(AdapterView<?> listView, View view,
                                     int position, long id) {
                 // Get the cursor, positioned to the corresponding row in the result set
-                Cursor cursor1 = (Cursor) listView.getItemAtPosition(position);
+                final Cursor cursor1 = (Cursor) listView.getItemAtPosition(position);
 
                 // Get the state's capital from this row in the database.
                 String bookName =
                         cursor1.getString(cursor1.getColumnIndexOrThrow(dbhelper.BOOK_NAME));
 
 
-                try {
-                    db1.extendBorrowDate(cursor1.getString(cursor1.getColumnIndexOrThrow(dbhelper.BOOK_ID)),cursor1.getString(cursor1.getColumnIndexOrThrow(dbhelper.RETURN_DATE)));
-                    alertDialog = new AlertDialog.Builder(Borrow.this).create();
 
-                    alertDialog.setTitle("Borrow");
 
-                    alertDialog.setMessage("Book extended by 1 week. ");
 
-                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
 
-                        public void onClick(DialogInterface dialog, int id) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Borrow.this);
 
-                            alertDialog.dismiss();
-                            finish();
-                            startActivity(getIntent());
+                    // Setting Dialog Title
+                    alertDialogBuilder.setTitle("Confirm Extend.");
 
-                        } });
+                    // Setting Dialog Message
+                    alertDialogBuilder.setMessage("Do you want to extend this book?");
 
-                    alertDialog.show();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(),
-                            "Exception occurred. Contact App admin : "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
+                    // Setting Icon to Dialog
+                    //alertDialog.setIcon(R.drawable.delete);
+
+                    // Setting Positive "Yes" Button
+                    alertDialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int which) {
+
+                            // Write your code here to invoke YES event
+                            // Toast.makeText(getApplicationContext(), "You clicked on YES", Toast.LENGTH_SHORT).show();
+                    try{
+                            db1.extendBorrowDate(cursor1.getString(cursor1.getColumnIndexOrThrow(dbhelper.BOOK_ID)),cursor1.getString(cursor1.getColumnIndexOrThrow(dbhelper.RETURN_DATE)));
+                            alertDialog = new AlertDialog.Builder(Borrow.this).create();
+
+                            alertDialog.setTitle("Borrow");
+
+                            alertDialog.setMessage("Book extended by 1 week. ");
+
+                            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    alertDialog.dismiss();
+                                    finish();
+                                    startActivity(getIntent());
+
+                                } });
+
+                            alertDialog.show();
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(),
+                                    "Exception occurred. Contact App admin : "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                        }
+                    });
+
+                // Setting Negative "NO" Button
+                alertDialogBuilder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Write your code here to invoke NO event
+                        //Toast.makeText(getApplicationContext(), "You clicked on NO", Toast.LENGTH_SHORT).show();
+                        dialog.cancel();
+                    }
+                });
+
+                // Showing Alert Message
+                alertDialogBuilder.show();
+
+
 
             }
         });
