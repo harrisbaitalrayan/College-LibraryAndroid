@@ -288,6 +288,8 @@ public class dbhelper extends SQLiteOpenHelper {
     }
 
     public boolean addBorrowBook(String uid,String bookID, String bookName, String bookLang, String bookAuth) {
+
+
         SQLiteDatabase db = this.getWritableDatabase();
 
         Calendar c = Calendar.getInstance();
@@ -312,6 +314,27 @@ public class dbhelper extends SQLiteOpenHelper {
         Log.d(TAG, "New user inserted into sqlite: " + id);
         return true;
     }
+
+    public Cursor checkIfBookAlreadyBorrowed( String userName,String book_id) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String table = TABLE_BORROW;
+        String[] columns = { "rowid _id", BOOK_ID,BOOK_NAME,BOOK_LANG,BOOK_AUTH,RETURN_DATE};
+        String selection = KEY_ID + "=? and " + BOOK_ID + "=?";
+        String[] selectionArgs={userName,book_id} ;
+        String groupBy = null;
+        String having = null;
+        String orderBy =null;
+        String limit = null;
+
+
+
+        Cursor cursor = db.query(table, columns,selection, selectionArgs, null, null, null);
+        return cursor;
+
+    }
+
 
     public boolean extendBorrowDate(String bookID, String date) throws ParseException {
         SQLiteDatabase db = this.getWritableDatabase();

@@ -131,22 +131,49 @@ public class SearchMain extends AppCompatActivity {
                     alertDialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int which) {
 
-                            db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID,bookName,bookLang,bookAuth);
-                            alertDialog = new AlertDialog.Builder(SearchMain.this).create();
+                            Cursor cursor = db.checkIfBookAlreadyBorrowed(session.getUserDetails().get(KEY_NAME),bookID);
 
-                            alertDialog.setTitle("Borrow");
+                            if(cursor!=null && cursor.moveToFirst()){
 
-                            alertDialog.setMessage("Book successfully borrowed by user. ");
+                                alertDialog = new AlertDialog.Builder(SearchMain.this).create();
 
-                            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                                alertDialog.setTitle("Borrow");
 
-                                public void onClick(DialogInterface dialog, int id) {
+                                alertDialog.setMessage("Book is already borrowed by user. Return date is "+cursor.getString(cursor.getColumnIndex(dbhelper.RETURN_DATE) ));
 
-                                    alertDialog.dismiss();
+                                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
 
-                                } });
+                                    public void onClick(DialogInterface dialog, int id) {
 
-                            alertDialog.show();
+                                        alertDialog.dismiss();
+
+                                    } });
+
+                                alertDialog.show();
+
+                            }else{
+
+                                db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID,bookName,bookLang,bookAuth);
+                                alertDialog = new AlertDialog.Builder(SearchMain.this).create();
+
+                                alertDialog.setTitle("Borrow");
+
+                                alertDialog.setMessage("Book successfully borrowed by user. ");
+
+                                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+
+                                    public void onClick(DialogInterface dialog, int id) {
+
+                                        alertDialog.dismiss();
+
+                                    } });
+
+                                alertDialog.show();
+
+                            }
+
+
+
                         }
                     });
 

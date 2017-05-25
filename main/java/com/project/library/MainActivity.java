@@ -3,6 +3,7 @@ package com.project.library;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -555,25 +556,48 @@ public class MainActivity extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
 
-                // Write your code here to invoke YES event
-               // Toast.makeText(getApplicationContext(), "You clicked on YES", Toast.LENGTH_SHORT).show();
+                Cursor cursor = db.checkIfBookAlreadyBorrowed(session.getUserDetails().get(KEY_NAME),bookID_1);
 
-                db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID_1,bookName_1,bookLang_1,bookAuth_1);
-                alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                if(cursor!=null && cursor.moveToFirst()){
 
-                alertDialog.setTitle("Borrow");
+                    alertDialog = new AlertDialog.Builder(MainActivity.this).create();
 
-                alertDialog.setMessage("Book successfully borrowed by user. ");
+                    alertDialog.setTitle("Borrow");
 
-                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                    alertDialog.setMessage("Book is already borrowed by user. Return date is "+cursor.getString(cursor.getColumnIndex(dbhelper.RETURN_DATE) ));
 
-                    public void onClick(DialogInterface dialog, int id) {
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
 
-                        alertDialog.dismiss();
+                        public void onClick(DialogInterface dialog, int id) {
 
-                    } });
+                            alertDialog.dismiss();
 
-                alertDialog.show();
+                        } });
+
+                    alertDialog.show();
+
+                }else{
+
+                    db.addBorrowBook(session.getUserDetails().get(KEY_NAME),bookID_1,bookName_1,bookLang_1,bookAuth_1);
+                    alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+
+                    alertDialog.setTitle("Borrow");
+
+                    alertDialog.setMessage("Book successfully borrowed by user. ");
+
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            alertDialog.dismiss();
+
+                        } });
+
+                    alertDialog.show();
+
+                }
+
+
             }
         });
 
