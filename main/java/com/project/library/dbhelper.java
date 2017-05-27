@@ -116,7 +116,158 @@ public class dbhelper extends SQLiteOpenHelper {
 
         // Inserting Row
          id = db.insert(TABLE_BOOK, null, values);
-        //db.close(); // Closing database connection
+
+
+        values.put(BOOK_ID, 	"BK001"	);
+        values.put(BOOK_NAME,	"Programming Android"	);
+        values.put(BOOK_LANG,	"English"	);
+        values.put(BOOK_AUTH, 	"Clarke"	);
+// Inserting Row
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+
+        values.put(BOOK_ID,"BKM01");
+        values.put(BOOK_NAME,"Social Media");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"TSAR");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM02");
+        values.put(BOOK_NAME,"Optimizing Code");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Steve");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM03");
+        values.put(BOOK_NAME,"Coding Practices");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Mark");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM04");
+        values.put(BOOK_NAME,"Software Dev");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Hol");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM05");
+        values.put(BOOK_NAME,"Solo Programming");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Adam");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM06");
+        values.put(BOOK_NAME,"Privacy Policies");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Jan");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM07");
+        values.put(BOOK_NAME,"Python");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Reilly");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM08");
+        values.put(BOOK_NAME,"HTML");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Reilly");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM10");
+        values.put(BOOK_NAME,"PERL");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Reilly");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM11");
+        values.put(BOOK_NAME,"Google Apps");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Reilly");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM12");
+        values.put(BOOK_NAME,"Passionate Programmer");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Siri");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM13");
+        values.put(BOOK_NAME,"Nanoscale");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Reilly");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM14");
+        values.put(BOOK_NAME,"InfoTech");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"MK");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM15");
+        values.put(BOOK_NAME,"Science Tech");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Joy");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM16");
+        values.put(BOOK_NAME,"Oject Oriented Programming");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Ran");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM17");
+        values.put(BOOK_NAME,"Code");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Reilly");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+        values.put(BOOK_ID,"BKM18");
+        values.put(BOOK_NAME,"Materials Science");
+        values.put(BOOK_LANG,"English");
+        values.put(BOOK_AUTH,"Clove");
+        id = db.insert(TABLE_BOOK, null, values);
+
+
+
+
+
+
+    //db.close(); // Closing database connection
 
         Log.d(TAG, "Books inserted: " + id);
     }
